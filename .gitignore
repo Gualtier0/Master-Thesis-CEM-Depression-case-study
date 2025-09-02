@@ -29,3 +29,6 @@ data/processed/*
 # IDEs
 .vscode/
 .idea/
+data/
+notebooks/positive_examples_anonymous_chunks/
+notebooks/negative_examples_anonymous_chunks/
