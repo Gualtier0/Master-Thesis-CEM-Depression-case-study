@@ -1,14 +1,12 @@
 # CEM-Concept embedded models in psychology
 
-Short description: application of CEM to reddit post history of diagnosed patients (+control group)
+An application of CEM to reddit post history of diagnosed patients (+control group)
 
 ## Layout
-- notebooks/: interactive notebooks (exploration)
-- src/: reusable code (functions, experiments)
-- data/raw/: original datasets (NOT tracked if large)
-- data/processed/: cleaned data for experiments
-- docs/: figures and notes
-- tests/: unit tests
+- notebooks/: code (functions, experiments)
+- data/raw/: original datasets (NOT tracked if large/sensible information)
+- data/processed/: cleaned data/joined dataset (if not sensible)
+- docs/: relevant papers and pubblications
 
 ## Quickstart
 1. Clone: git clone https://github.com/Gualtier0/Master-Thesis-CEM-Depression-etc-case-study.git
