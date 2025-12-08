@@ -1,0 +1,10 @@
+c_extractor_arch: !!python/name:__main__.c_extractor_arch ''
+concept_loss_weight: 1.0
+input_dim: 1152
+learning_rate: 0.01
+momentum: 0.9
+n_concepts: 21
+n_tasks: 1
+optimizer: adam
+task_loss_weight: 1.0
+weight_decay: 4.0e-05

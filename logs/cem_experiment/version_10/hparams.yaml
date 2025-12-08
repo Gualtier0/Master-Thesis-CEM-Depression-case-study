@@ -1,0 +1,19 @@
+c2y_layers: null
+c2y_model: null
+c_extractor_arch: !!python/name:__main__.c_extractor_arch ''
+concept_loss_weight: 1.0
+emb_size: 128
+embedding_activation: leakyrelu
+input_dim: 1152
+learning_rate: 0.01
+momentum: 0.9
+n_concepts: 21
+n_tasks: 1
+optimizer: adam
+shared_prob_gen: true
+task_class_weights: null
+task_loss_weight: 1
+top_k_accuracy: null
+training_intervention_prob: 0.25
+weight_decay: 4.0e-05
+weight_loss: null
