@@ -1,0 +1,10 @@
+concept_threshold: 0.5
+ldam_max_margin: 0.5
+ldam_scale: 40
+learning_rate: 0.01
+n_concepts: 21
+n_negative: 322
+n_positive: 66
+task_output_dim: 1
+use_ldam_loss: true
+weight_decay: 0.0001
