@@ -1,22 +1,22 @@
 {
     "model_type": "alternate_cem",
     "dataset": "alternative_attention_pipeline",
-    "threshold": 0.01,
+    "threshold": 0.3,
     "n_samples": 401,
     "n_positive": 52,
     "n_negative": 349,
-    "accuracy": 0.516209476309227,
-    "balanced_accuracy": 0.6402358386599074,
-    "roc_auc": 0.7154231871280582,
-    "mcc": 0.18998974205843333,
-    "f1_binary": 0.302158273381295,
-    "f1_macro": 0.4659646328738536,
-    "precision_binary": 0.18584070796460178,
-    "recall_binary": 0.8076923076923077,
+    "accuracy": 0.7805486284289277,
+    "balanced_accuracy": 0.6529920652413489,
+    "roc_auc": 0.7063037249283668,
+    "mcc": 0.2504429355284111,
+    "f1_binary": 0.36231884057971014,
+    "f1_macro": 0.6148943600488912,
+    "precision_binary": 0.29069767441860467,
+    "recall_binary": 0.4807692307692308,
     "confusion_matrix": {
-        "tn": 165,
-        "fp": 184,
-        "fn": 10,
-        "tp": 42
+        "tn": 288,
+        "fp": 61,
+        "fn": 27,
+        "tp": 25
     }
 }
