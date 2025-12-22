@@ -1,0 +1,31 @@
+concept_loss_weight: 1.0
+concept_pos_weight: !!python/object/apply:torch._utils._rebuild_tensor_v2
+- !!python/object/apply:torch.storage._load_from_bytes
+  - !!binary |
+    gAKKCmz8nEb5IGqoUBkugAJN6QMugAJ9cQAoWBAAAABwcm90b2NvbF92ZXJzaW9ucQFN6QNYDQAA
+    AGxpdHRsZV9lbmRpYW5xAohYCgAAAHR5cGVfc2l6ZXNxA31xBChYBQAAAHNob3J0cQVLAlgDAAAA
+    aW50cQZLBFgEAAAAbG9uZ3EHSwR1dS6AAihYBwAAAHN0b3JhZ2VxAGN0b3JjaApGbG9hdFN0b3Jh
+    Z2UKcQFYCQAAADIwNTAwOTc0NHECWAMAAABjcHVxA0sVTnRxBFEugAJdcQBYCQAAADIwNTAwOTc0
+    NHEBYS4VAAAAAAAAADIzk0EW07lA27a9QJWWrkGpqvpBCO1VQeZbfkC86X1BMjMXQqiqfkL9/79C
+    pxFGQevEXkEAADJBUV4TQamq+kGoqn5CMjMXQgjtVUHGcaRBRRcJQg==
+- 0
+- !!python/tuple
+  - 21
+- !!python/tuple
+  - 1
+- false
+- !!python/object/apply:collections.OrderedDict
+  - []
+concept_temperature: 2.0
+emb_size: 128
+input_dim: 384
+intervention_prob: 0.1
+ldam_max_margin: 0.5
+ldam_scale: 40
+learning_rate: 0.01
+n_concepts: 21
+n_negative: 322
+n_positive: 66
+shared_prob_gen: true
+use_ldam_loss: true
+weight_decay: 4.0e-05
