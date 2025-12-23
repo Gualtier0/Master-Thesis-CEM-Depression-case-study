@@ -1,0 +1,22 @@
+{
+    "model_type": "cem_max_comparison",
+    "dataset": "max_alternative_attention_pipeline",
+    "threshold": 0.41999999999999993,
+    "n_samples": 401,
+    "n_positive": 52,
+    "n_negative": 349,
+    "accuracy": 0.8329177057356608,
+    "balanced_accuracy": 0.7976361031518624,
+    "roc_auc": 0.893156270663434,
+    "mcc": 0.47381974892580275,
+    "f1_binary": 0.5379310344827586,
+    "f1_macro": 0.7179761717314859,
+    "precision_binary": 0.41935483870967744,
+    "recall_binary": 0.75,
+    "confusion_matrix": {
+        "tn": 295,
+        "fp": 54,
+        "fn": 13,
+        "tp": 39
+    }
+}
