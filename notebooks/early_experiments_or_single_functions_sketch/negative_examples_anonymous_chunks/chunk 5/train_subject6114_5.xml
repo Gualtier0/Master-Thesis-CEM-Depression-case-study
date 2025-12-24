@@ -1,0 +1,27 @@
+<INDIVIDUAL>
+<ID>train_subject6114</ID>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-03-25 01:57:29 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> yeah, i send emails to an address like that all the time but when i try to send it form IFTTT it seems to just chop off the beginning.  </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE> E-mail address issues w/ email sent on trigger </TITLE>
+	<DATE> 2015-03-23 20:40:20 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> The email I am trying to send is to a dlist and the format of the email is something like +dlist+~orgname/dlist/group@school.edu however, when ifttt sends it to gmail it gets sent as group@school instead of the entire dlist. </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-03-23 20:38:14 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> Perhaps you could do a cascading sort of notification system where if it is raining in a certain area it triggers an event, and that event will always trigger an iOS notification that has the zip code it will be raining in. Not sure if it will work but just a thought. </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE> Google Calendar - GroupMe not working </TITLE>
+	<DATE> 2015-03-22 22:14:18 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> As title says, the trigger is the start of a calendar event but the recipe has never been run and many events should have triggered it. It is on a shared calendar could this be the reason it is not working?  </TEXT>
+</WRITING>
+</INDIVIDUAL>
