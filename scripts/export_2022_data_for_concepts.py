@@ -82,20 +82,48 @@ def parse_subject_xml(xml_file: Path) -> Tuple[str, List[str]]:
     return subject_id, posts
 
 
-def build_posts_list(xml_files: List[Path]) -> Tuple[List[List[str]], List[str]]:
+def load_labels(labels_file: Path) -> dict:
+    """
+    Load labels from risk_golden_truth.txt.
+
+    Args:
+        labels_file: Path to the labels file
+
+    Returns:
+        Dictionary mapping subject_id to label (0=control, 1=patient)
+    """
+    labels = {}
+    if not labels_file.exists():
+        print(f"  ⚠ Warning: Labels file not found: {labels_file}")
+        return labels
+
+    with open(labels_file, 'r') as f:
+        for line in f:
+            parts = line.strip().split()
+            if len(parts) == 2:
+                subject_id, label = parts
+                labels[subject_id] = int(label)
+
+    return labels
+
+
+def build_posts_list(xml_files: List[Path], labels: dict = None) -> Tuple[List[List[str]], List[str], List[int]]:
     """
     Build list of lists structure from XML files.
 
     Args:
         xml_files: List of XML file paths
+        labels: Optional dictionary of subject_id -> label
 
     Returns:
-        Tuple of (all_posts, subject_ids)
+        Tuple of (all_posts, subject_ids, label_list)
         - all_posts: List of lists, each inner list contains posts for one subject
         - subject_ids: List of subject IDs corresponding to each inner list
+        - label_list: List of labels (0 or 1) corresponding to each subject
     """
     all_posts = []
     subject_ids = []
+    label_list = []
 
     print(f"Parsing {len(xml_files)} XML files...")
 
@@ -107,16 +135,50 @@ def build_posts_list(xml_files: List[Path]) -> Tuple[List[List[str]], List[str]]
         all_posts.append(posts)
         subject_ids.append(subject_id)
 
-    return all_posts, subject_ids
+        # Get label if available
+        if labels:
+            label = labels.get(subject_id, -1)  # -1 if not found
+            label_list.append(label)
+        else:
+            label_list.append(-1)
+
+    return all_posts, subject_ids, label_list
 
 
-def generate_stats(all_posts: List[List[str]], subject_ids: List[str]) -> str:
+def sort_by_labels(all_posts: List[List[str]], subject_ids: List[str], labels: List[int]) -> Tuple[List[List[str]], List[str], List[int]]:
+    """
+    Sort subjects by label (controls first, then patients).
+
+    Args:
+        all_posts: List of lists of posts
+        subject_ids: List of subject IDs
+        labels: List of labels
+
+    Returns:
+        Sorted (all_posts, subject_ids, labels) with controls (0) first, then patients (1)
+    """
+    # Create list of tuples (posts, subject_id, label)
+    combined = list(zip(all_posts, subject_ids, labels))
+
+    # Sort by label (0 first, then 1)
+    combined_sorted = sorted(combined, key=lambda x: x[2])
+
+    # Unzip back into separate lists
+    all_posts_sorted = [item[0] for item in combined_sorted]
+    subject_ids_sorted = [item[1] for item in combined_sorted]
+    labels_sorted = [item[2] for item in combined_sorted]
+
+    return all_posts_sorted, subject_ids_sorted, labels_sorted
+
+
+def generate_stats(all_posts: List[List[str]], subject_ids: List[str], labels: List[int] = None) -> str:
     """
     Generate summary statistics for the dataset.
 
     Args:
         all_posts: List of lists of posts
         subject_ids: List of subject IDs
+        labels: Optional list of labels
 
     Returns:
         Formatted statistics string
@@ -131,6 +193,21 @@ def generate_stats(all_posts: List[List[str]], subject_ids: List[str]) -> str:
     post_counts = [len(posts) for posts in all_posts]
     median_posts = sorted(post_counts)[len(post_counts) // 2] if post_counts else 0
 
+    # Count labels if available
+    label_info = ""
+    if labels:
+        n_controls = labels.count(0)
+        n_patients = labels.count(1)
+        label_info = f"""
+Label Distribution:
+- Controls (label 0): {n_controls} subjects (indices 0-{n_controls-1})
+- Patients (label 1): {n_patients} subjects (indices {n_controls}-{total_subjects-1})
+
+IMPORTANT: Subjects are sorted by label!
+- First {n_controls} subjects = controls
+- Last {n_patients} subjects = patients
+"""
+
     stats = f"""2022 Dataset Statistics
 ========================
 
@@ -140,7 +217,7 @@ Average Posts per Subject: {avg_posts:.2f}
 Median Posts per Subject: {median_posts}
 Min Posts per Subject: {min_posts}
 Max Posts per Subject: {max_posts}
-
+{label_info}
 Data Structure:
 - Format: List of lists
 - Each list represents one subject
@@ -176,13 +253,14 @@ Total: {total_subjects} subjects, {total_posts} posts
     return stats
 
 
-def save_data(all_posts: List[List[str]], subject_ids: List[str], output_dir: Path):
+def save_data(all_posts: List[List[str]], subject_ids: List[str], labels: List[int], output_dir: Path):
     """
     Save data in multiple formats.
 
     Args:
         all_posts: List of lists of posts
         subject_ids: List of subject IDs
+        labels: List of labels
         output_dir: Directory to save output files
     """
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -199,15 +277,22 @@ def save_data(all_posts: List[List[str]], subject_ids: List[str], output_dir: Pa
     np.save(npy_path, np.array(all_posts, dtype=object))
     print(f"  ✓ Saved: {npy_path.name}")
 
-    # 3. Subject IDs mapping
+    # 3. Subject IDs mapping (with labels)
     json_path = output_dir / "2022_subject_ids.json"
-    id_mapping = {i: subject_id for i, subject_id in enumerate(subject_ids)}
+    id_mapping = {
+        i: {
+            "subject_id": subject_id,
+            "label": label,
+            "label_name": "control" if label == 0 else "patient"
+        }
+        for i, (subject_id, label) in enumerate(zip(subject_ids, labels))
+    }
     with open(json_path, 'w') as f:
         json.dump(id_mapping, f, indent=2)
     print(f"  ✓ Saved: {json_path.name}")
 
     # 4. Statistics
-    stats = generate_stats(all_posts, subject_ids)
+    stats = generate_stats(all_posts, subject_ids, labels)
     stats_path = output_dir / "2022_data_stats.txt"
     with open(stats_path, 'w') as f:
         f.write(stats)
@@ -235,8 +320,14 @@ def main():
         print("Please ensure the 2022 dataset is in data/raw/2022/datos/")
         return 1
 
+    # Load labels
+    print("\nStep 1: Loading labels...")
+    labels_file = output_dir / "risk_golden_truth.txt"
+    labels_dict = load_labels(labels_file)
+    print(f"  ✓ Loaded {len(labels_dict)} labels")
+
     # Find XML files
-    print("\nStep 1: Finding XML files...")
+    print("\nStep 2: Finding XML files...")
     xml_files = find_all_xml_files(datos_dir)
     print(f"  ✓ Found {len(xml_files)} XML files")
 
@@ -245,31 +336,44 @@ def main():
         return 1
 
     # Parse XML files and build data structure
-    print("\nStep 2: Parsing XML files and extracting posts...")
-    all_posts, subject_ids = build_posts_list(xml_files)
+    print("\nStep 3: Parsing XML files and extracting posts...")
+    all_posts, subject_ids, labels = build_posts_list(xml_files, labels_dict)
     print(f"  ✓ Parsed {len(subject_ids)} subjects")
 
     total_posts = sum(len(posts) for posts in all_posts)
     print(f"  ✓ Extracted {total_posts} total posts")
 
+    # Sort by labels (controls first, then patients)
+    print("\nStep 4: Sorting by labels (controls first, then patients)...")
+    all_posts, subject_ids, labels = sort_by_labels(all_posts, subject_ids, labels)
+    n_controls = labels.count(0)
+    n_patients = labels.count(1)
+    print(f"  ✓ Sorted: {n_controls} controls (indices 0-{n_controls-1}), {n_patients} patients (indices {n_controls}-{len(labels)-1})")
+
     # Save data
-    print("\nStep 3: Saving data...")
-    pkl_path, npy_path, json_path, stats_path = save_data(all_posts, subject_ids, output_dir)
+    print("\nStep 5: Saving data...")
+    pkl_path, npy_path, json_path, stats_path = save_data(all_posts, subject_ids, labels, output_dir)
 
     # Print summary
     print("\n" + "="*70)
     print("SUCCESS!")
     print("="*70)
     print(f"\nGenerated files in {output_dir}:")
-    print(f"  1. {pkl_path.name} - Main output")
+    print(f"  1. {pkl_path.name} - Main output (send to supervisor)")
     print(f"  2. {npy_path.name} - Alternative format")
-    print(f"  3. {json_path.name} - Subject ID mapping")
+    print(f"  3. {json_path.name} - Subject ID and label mapping")
     print(f"  4. {stats_path.name} - Statistics summary")
 
     print(f"\nData structure:")
-    print(f"  - {len(all_posts)} subjects (users)")
+    print(f"  - {len(all_posts)} subjects total")
+    print(f"  - First {n_controls} = controls (label 0)")
+    print(f"  - Last {n_patients} = patients (label 1)")
     print(f"  - {total_posts} total posts")
     print(f"  - Format: List of lists [[user1_posts], [user2_posts], ...]")
+
+    print(f"\nNext step:")
+    print(f"  Send '{pkl_path.name}' to your supervisor for concept generation.")
+    print(f"  Tell them: First {n_controls} are controls, last {n_patients} are patients.")
     print("="*70)
 
     return 0
