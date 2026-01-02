@@ -1,22 +1,22 @@
 {
     "model_type": "cem_max_gold",
     "data_source": "max_alternative_attention_pipeline",
-    "threshold": 0.0,
+    "threshold": 0.05,
     "n_samples": 401,
     "n_positive": 52,
     "n_negative": 349,
-    "accuracy": 0.12967581047381546,
-    "balanced_accuracy": 0.5,
+    "accuracy": 0.7830423940149626,
+    "balanced_accuracy": 0.826261847035486,
     "roc_auc": 0.8832929248402028,
-    "mcc": 0.0,
-    "f1_binary": 0.22958057395143489,
-    "f1_macro": 0.11479028697571744,
-    "precision_binary": 0.12967581047381546,
-    "recall_binary": 1.0,
+    "mcc": 0.47123064922122715,
+    "f1_binary": 0.5139664804469274,
+    "f1_macro": 0.6871598052314893,
+    "precision_binary": 0.36220472440944884,
+    "recall_binary": 0.8846153846153846,
     "confusion_matrix": {
-        "tn": 0,
-        "fp": 349,
-        "fn": 0,
-        "tp": 52
+        "tn": 268,
+        "fp": 81,
+        "fn": 6,
+        "tp": 46
     }
 }
