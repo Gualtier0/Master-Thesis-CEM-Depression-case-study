@@ -1,0 +1,122 @@
+<INDIVIDUAL>
+<ID>train_subject7806</ID>
+<WRITING>
+	<TITLE> Anyone used UV cured conductive ink before? I need to buy good material from my thesis. </TITLE>
+	<DATE> 2015-07-05 18:45:58 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> I've been searching for one and found some links to products but they are either not commercial yet or very expensive!
+
+* This [one](http://www.electronicsnews.com.au/Features/First-commercial-silver-ink-UV-cured-without-heat) was announced in 2012 but I can't find a link o buy it.
+* This [one](https://www.sigmaaldrich.com/catalog/product/aldrich/791873?lang=en region=US) costs $389 for 10 gm!
+* And I don't know how to get this [one](http://www.conductivecompounds.com/uv-curable/z-904-ultraviolet-curable-anisotropic-conductive-ink.html), the company is not replying.
+
+Can anyone help?
+ </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE> Man killed by a factory robot in Germany </TITLE>
+	<DATE> 2015-07-02 02:23:24 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT>  </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-07-02 00:20:07 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> Awesome! Check more projects on its [Hackster page](http://hackster.io/1sheeld/projects). </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-07-02 00:18:46 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> Why dead? the percentage of successful campaigns is growing far beyond the failing ones. </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-07-02 00:17:50 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> I've met them in the bay area maker faire last month, it's working! </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-07-01 23:58:38 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> My recommendation is to put a switch to change the mode of your shield between 3.3V (for the Due) and 5V (for the Mega).
+
+Have you heard of the [1Sheeld](http://www.1sheeld.com)? It has that switch and the manufacturers share the schematic design to be open source, check it on [Github](https://github.com/Integreight/1Sheeld-Schematics-and-Board).  </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-07-01 23:50:57 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> I recommend the [1Sheeld](http://www.1sheeld.com) Arduino shield. It turns your smartphone's hardware into 40 different shields through an Android app.
+
+So you have the sensors like a Gyroscope, Accelerometer, GPS, Proximity, Temperature (I don't know if you have that in the S4).
+Also voice recognition, storing data, text to speech, posting on twitter, facebook, video streaming through Skype ... etc.
+
+Check the list of [shields](http://1sheeld.com/shields/) and the getting started tutorial [video](https://www.youtube.com/watch?v=4LlfBoycKE8).
+
+I built with it some projects like a [candy grabber machine](http://www.instructables.com/id/How-to-create-your-own-candy-grabber-machine-using/), where I used the phone as a Gamepad controller for children to grab candy and teach them about Arduino and coding, it was a nice game in the maker faire. </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-06-30 10:51:17 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> Nice! </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-06-30 10:49:29 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> Intel Galileo would be a great idea, if you code using Arduino IDE it sucks but I'll try Windows, thanks a lot! </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-06-30 10:48:40 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> Thanks, interesting read. </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-06-30 10:48:17 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> Sure! I'l keep you posted. </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-06-30 10:47:45 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> Thanks! </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-06-29 16:26:00 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> Exactly, I want to control the ink jet as i control a CNC machine. So basically there are no open source drivers? Do I have to override the driver and control it with motors directly?
+ </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE> I want to hack an inkjet or laser printer to control it with Arduino, anyone did something similar before? </TITLE>
+	<DATE> 2015-06-29 12:42:30 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT>  </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-06-24 20:02:04 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> Well at least they have the Arduino trademark in the US. </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE> Arduino and Seeedstudio announce partnership in Shenzhen to manufacture Genuino </TITLE>
+	<DATE> 2015-06-24 11:41:18 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT>  </TEXT>
+</WRITING>
+<WRITING>
+	<TITLE>   </TITLE>
+	<DATE> 2015-06-24 11:39:36 </DATE>
+	<INFO> reddit post </INFO>
+	<TEXT> Yea some of them are collaborations with they guys at the makerspace :) They don't like using Reddit! Say it has a bad interface which is true :D </TEXT>
+</WRITING>
+</INDIVIDUAL>

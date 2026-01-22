@@ -1,0 +1,9 @@
+concept_loss_weight: 1.0
+concept_threshold: 0.5
+hard_bottleneck: true
+input_dim: 384
+learning_rate: 0.001
+n_concepts: 21
+task_output_dim: 1
+task_pos_weight: 2.0
+weight_decay: 0.01

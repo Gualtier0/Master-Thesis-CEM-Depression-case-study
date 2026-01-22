@@ -1,0 +1,32 @@
+{
+    "best_hyperparameters": {
+        "use_ldam_loss": true,
+        "ldam_max_margin": 0.2650640588680905,
+        "ldam_scale": 22,
+        "use_weighted_sampler": true,
+        "learning_rate": 0.003124565071260871,
+        "concept_loss_weight": 1.4177793420835691,
+        "emb_size": 256,
+        "intervention_prob": 0.22803499210851796,
+        "weight_decay": 0.00037183641805732076,
+        "best_threshold": 0.4,
+        "validation_mcc": 0.7924528301886792,
+        "n_trials": 10,
+        "n_pruned": 0
+    },
+    "test_metrics": {
+        "threshold": 0.4,
+        "mcc": 0.3907153422046393,
+        "recall": 0.5769230769230769,
+        "precision": 0.40540540540540543,
+        "f1": 0.47619047619047616,
+        "roc_auc": 0.8140659340659341,
+        "accuracy": 0.835820895522388,
+        "confusion_matrix": {
+            "tn": 153,
+            "fp": 22,
+            "fn": 11,
+            "tp": 15
+        }
+    }
+}

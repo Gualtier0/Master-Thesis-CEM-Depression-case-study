@@ -1,0 +1,22 @@
+{
+    "model_type": "cem_larger",
+    "data_source": "largerV2_max_alternative_attention_pipeline",
+    "threshold": 0.05,
+    "n_samples": 401,
+    "n_positive": 52,
+    "n_negative": 349,
+    "accuracy": 0.7955112219451371,
+    "balanced_accuracy": 0.8006942913819705,
+    "roc_auc": 0.8852766145029756,
+    "mcc": 0.4478949750587241,
+    "f1_binary": 0.5060240963855421,
+    "f1_macro": 0.6885466393877396,
+    "precision_binary": 0.3684210526315789,
+    "recall_binary": 0.8076923076923077,
+    "confusion_matrix": {
+        "tn": 277,
+        "fp": 72,
+        "fn": 10,
+        "tp": 42
+    }
+}
