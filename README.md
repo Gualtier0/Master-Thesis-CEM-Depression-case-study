@@ -41,14 +41,15 @@ The pipeline is designed to be **lightweight, modular, and easily deployable**, 
 ---
 
 ## Repository Structure
-
-- notebooks/Pipelines/ Core experimental pipelines and model training notebooks
-- scripts/ Helper scripts and utilities
-- earliest_experiments/ Preliminary and exploratory experiments
-- logs/ Training logs and checkpoints
-- docs/ Thesis document and defense presentation
-- data/raw/ Original eRisk datasets (available under user agreements)
-- data/processed/ Cleaned and joined datasets used in experiments
+| Folder | Description |
+|---------|--------------|
+| [notebooks/Pipelines/](./notebooks/Pipelines/) | Core experimental pipelines and model training notebooks |
+| [scripts/](./scripts/) | Helper scripts and utilities |
+| [earliest_experiments/](./earliest_experiments/) | Preliminary and exploratory experiments |
+| [logs/](./logs/) |Training logs and checkpoints |
+| [docs/](./docs/) |Thesis document and defense presentation |
+| [data/raw/](./data/raw/) | Original eRisk datasets (available under user agreements) |
+| [data/processed/](./data/processed/) | Cleaned and joined datasets used in experiments |
 
 ---
 
@@ -70,6 +71,6 @@ All experiments are implemented in Python using standard scientific and deep lea
 git clone https://github.com/Gualtier0/Master-Thesis-CEM-Depression-etc-case-study.git
 cd Master-Thesis-CEM-Depression-etc-case-study
 pip install -r requirements.txt
-
-
+```
+Open the notebooks in notebooks/Pipelines/ to reproduce the main experiments, or run the provided scripts for specific tasks.
 
