@@ -43,10 +43,10 @@ The pipeline is designed to be **lightweight, modular, and easily deployable**, 
 ## Repository Structure
 | Folder | Description |
 |---------|--------------|
-| [notebooks/Pipelines/](./notebooks/Pipelines/) | Core experimental pipelines and model training notebooks |
+| [notebooks/Pipelines/](./notebooks/Pipelines/) | Core experimental pipelines and model training notebooks, as well as their output |
 | [scripts/](./scripts/) | Helper scripts and utilities |
 | [earliest_experiments/](./earliest_experiments/) | Preliminary and exploratory experiments |
-| [logs/](./logs/) |Training logs and checkpoints |
+| [logs/](./logs/) |Training older logs and checkpoints |
 | [docs/](./docs/) |Thesis document and defense presentation |
 | [data/raw/](./data/raw/) | Original eRisk datasets (available under user agreements) |
 | [data/processed/](./data/processed/) | Cleaned and joined datasets used in experiments |
