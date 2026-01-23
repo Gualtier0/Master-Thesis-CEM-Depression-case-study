@@ -74,3 +74,19 @@ pip install -r requirements.txt
 ```
 Open the notebooks in notebooks/Pipelines/ to reproduce the main experiments, or run the provided scripts for specific tasks.
 
+---
+
+## Notes
+
+Due to dataset licensing constraints, raw eRisk data is not redistributed. Users must obtain access independently and place the data in the expected directory structure.
+
+---
+
+## Citation
+
+If you use or build upon this work, please cite the corresponding Master’s thesis.
+
+
+
+
+
